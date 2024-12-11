@@ -44,7 +44,9 @@ def snakemake_runtime(
     plotting_modes: typing.List[PlottingMode],
     taxon_focus: TaxonFocus,
 ) -> LatchDir:
+    # downloads input directory
     local_input = Path(input_dir).resolve()
+
     local_output = Path("/root/output")
 
     config = {
@@ -87,6 +89,7 @@ def snakemake_runtime(
     except subprocess.CalledProcessError:
         sys.exit(1)
 
+    # by returning here, we upload the local output directory to latch
     return LatchDir(local_output, remote_path=output_dir.remote_path)
 
 
