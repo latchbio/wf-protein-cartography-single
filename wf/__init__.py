@@ -6,8 +6,18 @@ from pathlib import Path
 from latch.resources.tasks import small_task
 from latch.resources.workflow import workflow
 from latch.types.directory import LatchDir, LatchFile, LatchOutputDir
+from latch.types.metadata import LatchAuthor, LatchMetadata, LatchParameter
 
-from .metadata import metadata
+# Using the Latch-Specific Metadata (instead of SnakemakeV2Metadata)
+metadata = LatchMetadata(
+    display_name="Protein Cartography Single",
+    author=LatchAuthor(name="Arcadia Biosciences"),
+    parameters={
+        "input_dir": LatchParameter(display_name="Input Dir"),
+        "output_dir": LatchParameter(display_name="Output Dir"),
+        "config_file": LatchParameter(display_name="Config File"),
+    },
+)
 
 
 @small_task
