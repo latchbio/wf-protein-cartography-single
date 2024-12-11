@@ -1,0 +1,3 @@
+[submodule "ProteinCartography"]
+	path = ProteinCartography
+	url = git@github.com:Arcadia-Science/ProteinCartography.git
